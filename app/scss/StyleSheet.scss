@@ -1,0 +1,396 @@
+﻿$basketball-size: 5rem;
+$default-section-size: 22rem;
+
+
+body {
+    width:100%;
+    height:100%;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+@mixin keyframes($animationName)
+{
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+    @-moz-keyframes #{$animationName}  {
+        @content;
+    }
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+@include keyframes(mymove) {
+    0%   {
+         -webkit-transform: rotate(0deg);
+         -o-transition: rotate(0deg);
+         -moz-transform: rotate(0deg);
+         transform: rotate(0deg);
+         left: 0rem;
+    }
+    25%  {
+         -webkit-transform: rotate(90deg);
+         -o-transition: rotate(90deg);
+         -moz-transform: rotate(90deg);
+         transform: rotate(90deg);
+         left: 10rem;
+    }
+
+    50% {
+        -webkit-transform: rotate(180deg);
+         -o-transition: rotate(180deg);
+         -moz-transform: rotate(180deg);
+         transform: rotate(180deg);
+         left: 20rem;
+    }
+
+    75%  {
+         -webkit-transform: rotate(270deg);
+         -o-transition: rotate(270deg);
+         -moz-transform: rotate(270deg);
+         transform: rotate(270deg);
+         left: 30rem;
+    }
+    100% {
+         -webkit-transform: rotate(360deg);
+         -o-transition: rotate(360deg);
+         -moz-transform: rotate(360deg);
+         transform: rotate(360deg);
+         left: 40rem;
+    }
+}
+
+/* Media Queries
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/*
+Note: The best way to structure the use of media queries is to create the queries
+near the relevant code. For example, if you wanted to change the styles for buttons
+on small devices, paste the mobile query code up in the buttons section and style it
+there.
+*/
+
+
+/* Larger than mobile */
+@media (min-width: 300px) {
+    nav {
+        background: #000;
+        text-align: center;
+        height: 5rem;
+        font-family: 'PT Sans Narrow', sans-serif;
+        line-height: 5rem;
+        z-index: 1000;
+        width: 100%;
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            margin-left: 2rem; 
+            font-size: 2.25rem;
+
+            &:hover {
+                color: #c3c3c3;
+            }
+        }
+    }
+
+    .picture-container {
+            position: relative;
+            height: 600px;
+
+            img {
+                position: absolute;
+                height: 600px;
+                width: auto;
+                border-radius:90px;
+                -moz-border-radius: 90px;
+                -webkit-border-radius: 90px;
+                left: -2rem;
+                top: 2rem;
+                -webkit-transition: opacity 1s ease-in-out;
+                -moz-transition: opacity 1s ease-in-out;
+                -o-transition: opacity 1s ease-in-out;
+                transition: opacity 1s ease-in-out;
+
+                &.top:hover {
+                    opacity: 0;
+                }
+            }
+        }
+
+    .experience, .contact {
+        margin-top: 5rem;
+    }
+
+    .job {
+            &.-company{
+                cursor:pointer;
+            }
+
+            &.-toggle {
+                margin-left: 1rem;
+            }
+
+            &.-languages {
+                opacity: 0;
+                background: transparent;
+                position: relative;
+                overflow: visible;
+                border: none;
+                -webkit-transition: all 1s ease-in-out;
+                -moz-transition: all 1s ease-in-out;
+                -o-transition: all 1s ease-in-out;
+                transition: all 1s ease-in-out;
+
+                &.show {
+                    opacity: 1;
+                }
+            }
+        }
+
+    .profileThree {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 2rem;
+        border-radius: 50%;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        background-image: url('/app/images/profilethree.jpg');
+    }
+
+    .linkedIn {
+        font-size: 3.5rem;
+    }
+}
+
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) { /* STYLES GO HERE */
+    .picture-container {
+        height: 500px;
+        img {
+            width: 300px;
+            height: 500px;
+            left: -8px;
+        }
+    }
+}
+
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) { /* STYLES GO HERE */
+    .picture-container {
+        img {
+            left: 0rem;
+        }
+    }
+}
+
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) { 
+    /* STYLES GO HERE */
+    .picture-container {
+        height: 600px;
+
+        img {
+            width: auto;
+            height: 600px;
+            left: -2rem;
+        }
+    }
+}
+
+
+/* Larger than phablet (also point when grid becomes active) */
+@media (min-width: 550px) {
+    nav {
+        position: fixed;
+        top: 0;
+    }
+    
+    .section {
+        padding: 22rem 0;
+        font-family: 'Raleway', sans-serif;
+    }
+
+    .intro {
+        padding: 5rem 0;
+
+        .about {
+            margin-top: 12rem;
+        }
+
+        .paragraph {
+            text-align:center;
+
+            h2,h4 {
+                margin-bottom: 0.25rem;
+            }
+
+            hr {
+                border-top: 4px solid #666;
+                margin: 0 10rem;
+            }
+        }
+
+        .subscript {
+            margin-top: 1rem;
+            margin-bottom: -1.5rem;
+            font-size: 2rem;
+        }
+
+        .introduction {
+            font-size: 1.5rem;
+        }
+
+        .picture-container {
+            text-align: center;
+        }
+    }
+
+    .experience {
+        /*background: -webkit-linear-gradient(141deg, rgba(15, 184, 173, 1) 0%, rgba(31, 200, 219, 1) 51%, rgba(255,0,0,0));
+        background: -o-linear-gradient(141deg, rgba(15, 184, 173, 1), rgba(31, 200, 219, 1) 51%, rgba(255,0,0,0));
+        background: -moz-linear-gradient(141deg, rgba(15, 184, 173, 1) 0%, rgba(31, 200, 219, 1) 51%, rgba(255,0,0,0)); 
+        background: linear-gradient(141deg, rgba(15, 184, 173, 1) 0%, rgba(31, 200, 219, 1) 51%,rgba(255,0,0,0)); */
+        border-bottom: 4px solid #c3c3c3;
+        border-top: 4px solid #c3c3c3;
+        padding: 15rem 0;
+
+        .column {
+            margin-left: 2%;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .title {
+            text-align: center;
+            font-family: 'PT Sans Narrow', sans-serif;
+            position: absolute;
+            top: -10rem;
+            width: 16rem;
+            font-size: 3.25rem;
+            margin-left: auto;
+            margin-right: auto;
+            left: 0;
+            right: 0;
+        }
+
+        .work {
+            position: relative;
+            text-align: center;
+            font-size: 2.25rem;
+        }
+
+        h4 {
+            margin-bottom: 0rem;
+        }
+    }
+
+    .contact {
+        padding:15rem;
+
+        .title {
+            text-align: center;
+            font-family: 'PT Sans Narrow', sans-serif;
+            position: absolute;
+            top: -13rem;
+            width: 16rem;
+            font-size: 3.25rem;
+            margin-left: auto;
+            margin-right: auto;
+            left: 0;
+            right: 0;
+        }
+
+        .email {
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        .linkedIn {
+            text-align: center;
+        }
+    }
+
+    .profileThree {
+        width: 150px;
+        height: 150px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .basketball {
+        position: relative;
+        background-color: rgba(255, 153, 0,1);
+        width: 5rem;
+        height: 5rem;
+        border-radius: 30px;
+        box-shadow: 0 0 15px #ccc;
+        -moz-animation: mymove 3.5s infinite linear;
+        -webkit-animation: mymove 3.5s infinite linear;
+
+        .strip {
+            background-color: #090f0f;
+            position: absolute;
+            height: 0.5rem;
+            width: 5rem;
+            top: 2.2rem;
+            border-radius: 30px;
+
+            &.second{
+                -webkit-transform: rotate(45deg);
+                -moz-transform: rotate(45deg);
+                -o-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                transform: rotate(45deg);
+            }
+
+            &.third {
+                -webkit-transform: rotate(90deg);
+                -moz-transform: rotate(90deg);
+                -o-transform: rotate(90deg);
+                -ms-transform: rotate(90deg);
+                transform: rotate(90deg);
+            }
+
+            &.four {
+                -webkit-transform: rotate(135deg);
+                -moz-transform: rotate(135deg);
+                -o-transform: rotate(135deg);
+                -ms-transform: rotate(135deg);
+                transform: rotate(135deg);
+            }
+        }
+    }
+}
+
+/* Larger than tablet */
+@media (min-width: 770px) {
+    .picture-container{
+        img{
+            left: auto;
+        }
+    }
+}
+
+/* Larger than desktop */
+@media (min-width: 1000px) {
+}
+
+/* Larger than Desktop HD */
+@media (min-width: 1200px) {}
+
+

@@ -1,0 +1,26 @@
+﻿<div id="Experience" class="section experience">
+    <div class="container">
+        <div class="row">
+            <div class="title-container">
+                <p class="title">{{title}}</p>
+            </div>
+                <div *ngFor="let work of experiences" class="one-third column work {{work.id}}">
+                    <span class="job -title">{{work.title}}</span>
+                    <br/>
+                    <span class="job -period" *ngIf="currentMonth === work.endDate.getUTCMonth() && currentYear === work.endDate.getUTCFullYear()"> {{work.startDate.getUTCMonth()+1}}/{{work.startDate.getUTCFullYear()}} - Present</span>
+                    <span class="job -period" *ngIf="currentMonth !== work.endDate.getUTCMonth() || currentYear !== work.endDate.getUTCFullYear()">{{work.startDate.getUTCMonth()+1}}/{{work.startDate.getUTCFullYear()}} - {{work.endDate.getUTCMonth() + 1}}/{{work.endDate.getUTCFullYear()}}</span>
+                    <br />
+                    <span class="job -company" (click)="work.showLanguages = !work.showLanguages;">{{work.company}} 
+                        <span *ngIf="!work.showLanguages" class="job -toggle"><i class="fa fa-caret-square-o-down" aria-hidden="true"></i></span>
+                        <span *ngIf="work.showLanguages" class="job -toggle"><i class="fa fa-caret-square-o-up" aria-hidden="true"></i></span>
+                    </span>
+                    <br/>
+                    <span class="job -languages" [class.show]="work.showLanguages">
+                        <span class="rectangle one"></span>
+                        <span class="rectangle two"></span>
+                        {{work.languages}}
+                    </span>
+                </div>
+        </div>
+    </div>
+</div>
